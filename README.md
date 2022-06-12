@@ -1,6 +1,7 @@
 # webIOT
-clone
-Phía backend
+clone 
+#CÀI ĐẶT THƯ VIỆN
+Phía backend 
 - npm init
 - npm install mqtt --save
 - npm install cors
@@ -8,4 +9,9 @@ Phía backend
 - npm install body-parser
 
 Phía front-end
-install
+- npm run
+- npm install --legacy-peer-deps --save google-maps-react
+
+#CHẠY
+Phía backEnd: node pub-sub.js
+Phía frontEnd: npm run start
