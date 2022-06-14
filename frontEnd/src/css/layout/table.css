@@ -1,0 +1,43 @@
+table,
+th,
+td {
+    padding: 0 10px;
+    border-bottom: 1px solid #c7c7c7;
+    border-right: 1px dotted #c7c7c7;
+}
+
+tr {
+    height: 44px;
+    cursor: pointer;
+}
+
+th {
+    background-color: #e5e8ec;
+    height: 34px;
+}
+
+table {
+    display: table;
+    width: 100%;
+    margin-right: 16px;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+tr:hover {
+    background-color: #f2f9ff;
+}
+
+tr:active {
+    background-color: #e5f3ff;
+}
+
+.checkbox-emp:focus {
+    background-color: #e5f3ff;
+}
+
+.header-table {
+    position: sticky;
+    top: -1px;
+}

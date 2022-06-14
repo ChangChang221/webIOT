@@ -37,11 +37,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 var options = {
-    host: '97ff5a567fc942d896f17c1f4730142a.s2.eu.hivemq.cloud',
-    port: 8883,
-    protocol: 'mqtts',
-    username: 'trangbg20@gmail.com',
-    password: 'Trang2000'
+  host: '68c31a99590a4e37b25ad1b5789d04df.s1.eu.hivemq.cloud',
+  port: 8883,
+  protocol: 'mqtts',
+  username: 'trangbg20@gmail.com',
+  password: 'Trang2000'
 }
 
 //initialize the MQTT client
@@ -49,7 +49,7 @@ var client = mqtt.connect(options);
 
 //setup the callbacks
 client.on('connect', function () {
-    console.log('Connected');
+    console.log('Connected mqtt');
 });
 
 client.on('error', function (error) {
@@ -59,25 +59,25 @@ client.on('error', function (error) {
 //Called each time a message is received
 client.on('message', function (topic, message) {
   try{
-    console.log('Received message:', message.toString());
-    console.log(typeof message.toString())
+//    console.log('Received message:', message.toString());
+//    console.log(typeof message.toString())
     let dataMessage = JSON.parse(message);
     cityController.updateMQTT(dataMessage);
   }catch(e){
-    console.log("loi")
+    console.log("error")
   }
 })
-  
 
 client.on('close', () => {
-  console.log(`disconnected`);
+  console.log(`disconnected mqtt`);
 });
 // subscribe to topic 'my/test/topic'
 client.subscribe('mytopic');
 // publish message 'Hello' to topic 'my/test/topic'
 let dataPush={
+  id: "62808211ee8fefe86e989d2e",
   name: "Hà Nội",
-  humidity: "2000%",
+  humidity: "200%",
   temperature: "20'C"
 };
 client.publish('mytopic', JSON.stringify(dataPush));
@@ -95,15 +95,10 @@ app.get('/', (req, res) => {
 });
 app.get("/send", function(req, res) {
   client.publish('mytopic', dataPush);
-  console.log("req.body.message");
+ // console.log("req.body.message");
   res.send({
     message: dataPush});
 });
-// app.post("/send", function(req, res) {
-//   client.publish('mytopic', req.body.message);
-//   console.log(req.body.message);
-//   res.body=req.body.message;
-// });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

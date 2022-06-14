@@ -1,0 +1,7 @@
+.main-table > div{
+    height: 100%;
+    width: 100%;
+}
+.outmap >div{
+    position: sticky !important;
+}
