@@ -7,6 +7,7 @@ Phía backend
 - npm install cors
 - npm install express
 - npm install body-parser
+- npm i mongoose
 
 Phía front-end
 - npm run
