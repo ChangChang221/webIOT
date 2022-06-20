@@ -190,6 +190,8 @@ import {
 import GoogleApiWrapper from "./components/mapComponent.js";
 import AboutAQI from "./components/aboutAQI.component.js";
 import './css/main.css';
+import ChartAQI from "./components/chart.component.js";
+
 // import styled from "styled-components";
 
 // const AppDiv = styled.div`
@@ -208,35 +210,33 @@ import './css/main.css';
 // `;
 
 function App() {
-  return (
-    // <GoogleApiWrapper></GoogleApiWrapper>
-<div style={{color: "red",width: "100%"}}>
-      
-
+return(
+    <div style={{width: "100%"}}>
     <div className="container">
         <div className="menu-container">
             <div className="logo-container">
-                {/* <a href="%PUBLIC_URL%/logo.png" class="menu-container-option"></a> */}
-                <a href="/" class="logo">
-                    <img src="/assets/logo.png" alt="img-icon"/>
+                <a href="/" className="logo">
+                    {/* <img src={require("./assets/logo.png")} alt="img-icon"/> */}
                 </a>
             </div>
             <div className="menu-list">
                 <div className="tooltip">
-                    <a href="/" className="tooltip-content">
-                        <div className="icon-tooltip dashboard-icon"></div>
+                    <a href="/" className="tooltip-content"> 
+                        <i id="iconMenu" style={{fontSize:"24px"}} className="fa fa-list-ul" ></i>
                         <div className="title-tooltip">Tổng quan</div>
                     </a>
                 </div>
                 <div className="tooltip">
-                    <a href="/about" className="tooltip-content ">
-                        <div className="icon-tooltip cash-icon"></div>
+                    <a href="/chartAQI" className="tooltip-content ">
+                        {/* <div className="icon-tooltip cash-icon">
+                        </div>           */}
+                        <i id="iconMenu" style={{fontSize:"24px"}} className="fa fa-line-chart" ></i>                  
                         <div className="title-tooltip">Biểu đồ AQI</div>
                     </a>
                 </div>
                 <div className="tooltip">
                     <a href="/about" className="tooltip-content ">
-                        <div className="icon-tooltip cash-icon"></div>
+                        <i id="iconMenu" style={{fontSize:"30px"}} className="fa fa-info-circle" ></i>
                         <div className="title-tooltip">Thông tin về AQI</div>
                     </a>
                 </div>
@@ -247,6 +247,7 @@ function App() {
                 <div className="company">
                     <div className="three-stripes"></div>
                     <div className="main-company">
+                        <i className="fa fa-reddit" style={{color: "#6CC4A1"}}></i>
                         <div className="company-name">CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>
                         <div className="down-arrow-icon"></div>
                     </div>
@@ -269,40 +270,16 @@ function App() {
                     </div> --> */}
                 </div>
                 <div className="content-table">
-                    {/* <div className="table-search">
-                        <div className="input">
-                            <input type="text" className="m-input " placeholder="Tìm kiếm tên thành phố"/>
-                            <div className="search-icon"></div>
-                        </div>
-                        <div className="reload-icon"></div>
-                    </div> */}
                     <div className="main-table">
-                    
-  <BrowserRouter>
-    <Routes>
-    <Route path="/mapAQI" element={<GoogleApiWrapper/>} ></Route>
-    <Route path="/about" element={<AboutAQI/>} ></Route>
-    <Route path="/" element={<GoogleApiWrapper/>}></Route>
-    </Routes>
-  </BrowserRouter>
-                        {/* <div className="table-nav">
-                            <div className="left-table-nav">
-                                <div className="total-record">
-                                    Tổng số:
-                                    <b>49</b> bản ghi
-                                </div>
-                            </div>
-                            <div className="right-table-nav">
-                                <div className="record-in-page"></div>
-                                <div className="nav-page">
-                                    <div className="pre-page"></div>
-                                    <div className="next-page"></div>
-                                </div>
-                            </div>
-                        </div> */}
+                         <BrowserRouter>
+                            <Routes>
+                                <Route path="/mapAQI" element={<GoogleApiWrapper/>} ></Route>
+                                <Route path="/about" element={<AboutAQI/>} ></Route>
+                                <Route path="/chartAQI" element={<ChartAQI/>} ></Route>
+                                <Route path="/" element={<GoogleApiWrapper/>}></Route>
+                            </Routes>
+                        </BrowserRouter>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -513,20 +490,10 @@ function App() {
 
                 </div>
             </div>
-
         </div>
-
     </div> */}
-
-{/* <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<GoogleApiWrapper/>}>
-        <Route path="/map" element={<GoogleApiWrapper/>} />
-      </Route>
-    </Routes>
-  </BrowserRouter> */}
 </div>
-  );
+)
 }
 
 export default App;

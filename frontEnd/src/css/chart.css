@@ -1,0 +1,12 @@
+
+.chartLine{
+    width: 50%;
+    height: 50%;
+    display: inline-block;
+}
+@media only screen and (max-width: 890px) {
+    .chartLine{
+        width: 100%;
+        height: 50%;
+    }
+}

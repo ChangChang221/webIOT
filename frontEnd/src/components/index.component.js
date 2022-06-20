@@ -9,7 +9,6 @@ export default class Index extends Component {
         super(props);
         this.state = {city: []};
     }
-
     componentDidMount() {
         axios.get('http://localhost:5000/')
             .then(response => {

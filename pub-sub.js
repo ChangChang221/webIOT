@@ -77,8 +77,12 @@ client.subscribe('mytopic');
 let dataPush={
   id: "62808211ee8fefe86e989d2e",
   name: "Hà Nội",
-  humidity: "200%",
-  temperature: "20'C"
+  humidity: "200",
+  temperature: "20",
+  co:"26",
+  co2:"26",
+  pm25:"25",
+  pm10: "28"
 };
 client.publish('mytopic', JSON.stringify(dataPush));
 //create a server object:
@@ -92,6 +96,18 @@ app.get('/', (req, res) => {
         res.json(city);
     }
 });
+});
+app.get('/name', (req, res) => {
+  const city_name = req.query.name;
+  city.findOne({ name : city_name }, function (err, city) {
+    if(err){
+      console.log("err");
+    }
+    else {
+      console.log("thành công");
+      res.json(city);
+    }
+  });
 });
 app.get("/send", function(req, res) {
   client.publish('mytopic', dataPush);

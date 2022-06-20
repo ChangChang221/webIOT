@@ -74,7 +74,7 @@ import { Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
 import '../css/mapDiv.css';
 const mapStyles = {
   width: '100%',
-  height: '80%',
+  height: '500px',
   position: 'sticky'
 };
 
@@ -157,10 +157,15 @@ export class MapContainer extends Component {
           onClick={this.onMarkerClick}
           // title={'The marker`s title will appear as a tooltip.'}
           name=
-          {<div>{data.name}
-            <div>humidity: {data.humidity}</div>
-            <div>temperature: {data.temperature}</div>
-          </div>}
+          {<div>
+            <div style={{ fontSize:"20px"}}><i class="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name}</div>
+            <div>Humidity: {data.humidity}</div>
+            <div>Temperature: {data.temperature}</div>
+            <div>CO2: {data.co2}</div>
+            <div>CO: {data.co}</div>
+            <div>NO: {data.temperature}</div>
+          </div>
+          }
           position={{lat: data.lat, lng: data.lng}} />
         );
       })}
