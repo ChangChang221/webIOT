@@ -4,6 +4,42 @@
     height: 50%;
     display: inline-block;
 }
+.button {
+    background-color: #58257b; /* Màu của Quản trị mạng ^^ */
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    border-radius: 4px;
+    background-color: white; 
+    color: #00aced; 
+    border: 2px solid #00aced;
+}
+
+  .button:hover {
+    background-color: #00aced;
+    color: white;
+  }
+  .button:active {
+    box-shadow: 2px 2px 2px 2px blue;
+  }
+  .search{
+    padding: 8px 27px 9px 15px;
+    display: inline-block;
+    border: 2px solid #00aced;
+    margin-right: 10px;
+  }
+  .input{
+    border: none;
+    outline:none;
+  }
 @media only screen and (max-width: 890px) {
     .chartLine{
         width: 100%;

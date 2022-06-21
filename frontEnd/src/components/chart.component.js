@@ -167,7 +167,7 @@ class ChartAQI extends Component {
       labels: [date.getHours()+"h"+date.getMinutes()+"p"+ date.getSeconds()+"s", date.getHours()+"h"+date.getMinutes()+"p"+date.getSeconds()+"s", date.getHours()+"h"+date.getMinutes()+"p"+date.getSeconds()+"s"
       , date.getHours()+"h"+date.getMinutes()+"p"+date.getSeconds()+"s", date.getHours()+"h"+date.getMinutes()+"p"+date.getSeconds()+"s", date.getHours()+"h"+date.getMinutes()+"p"+date.getSeconds()+"s"],
       datasets: [{
-          data: [1, 2, 3, 4, 5, 6],
+          data: [0, 0, 0, 0, 0, 0],
           fill: true,
           backgroundColor: "rgba(75,192,192,0.2)",
           borderColor: "rgba(75,192,192,1)",
@@ -204,15 +204,16 @@ class ChartAQI extends Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(
-      () => this.increment("Hà Nội"),
-      1000
-    )
+    // this.timer = setInterval(
+    //   // () => this.increment("Hà Nội"),
+    //   1000
+    // )
+    console.log("trang 1")
   }
 
-  componentWillUnmount() {
-    clearInterval(this.timer)
-  }
+  // componentWillUnmount() {
+  //   clearInterval(this.timer)
+  // }
 
   increment(city) {
     const datasetsCopy = this.state.datahumidity.datasets.slice(0);
@@ -239,9 +240,6 @@ class ChartAQI extends Component {
                 dataCopy2.push(Number(dataRes.temperature));
                 labelsCopy.push(date.getHours()+"h"+date.getMinutes()+"p"+date_now.getSeconds()+"s");
               }
-              console.log("1",dataCopy);
-              console.log("2",dataCopy2);
-              console.log("3",labelsCopy);
           })
           .catch((err) => {
             // alert('failed to fetch');
@@ -269,40 +267,60 @@ class ChartAQI extends Component {
       })
     });
   }
-  // clickEnter(city){
-  //   console.log("city", city)
-  //   this.timer = setInterval(
-  //     () => this.increment(city),
-  //   1000
-  // )
-//}
 
+  handleClick = (e) => {
+    if(this.state.input=="") return;
+    clearInterval(this.timer);
+    let inputSearch=this.state.input.toLowerCase();
+    console.log(inputSearch);
+    this.timer = setInterval(()=>
+      {
+        console.log(inputSearch);
+        this.increment(inputSearch)
+      },
+      1000
+    )
+    // setInterval(
+    //   () => {
+    //     console.log(inputSearch);
+    //     this.increment(inputSearch)
+    //   },
+    //   2000
+    // ) 
+  }
   render(){
     return(
       <>
-      {/* <div style={{display:"inline-block"}}>
-      <input
+      <div style={{float:"right",display:"inline-block", marginTop:"50px"}}>
+        <div   className="search">
+        <i className="fa fa-search" aria-hidden="true"  style={{fontSize:"20px", paddingRight:"5px", color:"#1E90FF"}}></i>
+        <input
           type="text" 
           value={this.state.input}
-          onChange={(e) => this.setState({
-            input: (e.target.value)})}
+          onChange={(e) => 
+            this.setState({
+            input: (e.target.value)}
+            )}
           placeholder={"Nhập tên thành phố"}
+          className="input"
       />
-      <button onClick={this.clickEnter(this.state.input)}>Enter</button>
-      </div> */}
+      </div>
+    
+     <button type="submit" onClick={this.handleClick} className="button">Tìm kiếm</button>
+      </div>
     
       <div>
       
       <div className="chartLine">
       <div style={{width: "100%", float:"left", margin:"25px 0px", textAlign:"center"}}>
-        <i class="fa fa-tint" aria-hidden="true" style={{fontSize:"30px", paddingRight:"10px", color:"#1E90FF"}}/>
+        <i className="fa fa-tint" aria-hidden="true" style={{fontSize:"30px", paddingRight:"10px", color:"#1E90FF"}}/>
         Biểu đồ đường độ ẩm theo thời gian</div>
       <Line data={this.state.datahumidity} key={1}/>      
       {/* <Doughnut data = {this.state.data}/> */}
       </div>
       <div className="chartLine">
       <div style={{width: "100%", float:"left", margin:"25px 0px", textAlign:"center"}}>
-        <i class="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"30px", paddingRight:"10px", color:"#FF3300"}}/>
+        <i className="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"30px", paddingRight:"10px", color:"#FF3300"}}/>
         Biểu đồ đường nhiệt độ theo thời gian</div>
       <Line data={this.state.datatemperature} key={2}/>      
       {/* <Doughnut data = {this.state.data}/> */}

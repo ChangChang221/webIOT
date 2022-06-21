@@ -155,6 +155,8 @@ export class MapContainer extends Component {
         return (
           <Marker
           onClick={this.onMarkerClick}
+          // onMouseover={this.onMarkerClick}
+          // onMouseout={this.onClose}
           // title={'The marker`s title will appear as a tooltip.'}
           name=
           {<div>
