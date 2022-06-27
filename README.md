@@ -12,6 +12,7 @@ Phía backend
 Phía front-end
 - npm run
 - npm install --legacy-peer-deps --save google-maps-react
+- npm i react-chartjs-2
 
 # CHẠY
 Phía backEnd: node pub-sub.js
