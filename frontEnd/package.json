@@ -10,6 +10,7 @@
     "chart.js": "^3.8.0",
     "google-map-react": "^2.1.10",
     "google-maps-react": "^2.0.6",
+    "map-icons": "^3.0.3",
     "mqtt": "^4.3.7",
     "mqtt-react-hooks": "^2.0.3",
     "react": "^18.1.0",

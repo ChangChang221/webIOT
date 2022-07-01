@@ -21,9 +21,8 @@ function AboutAQI(){
         nhất. Cả 2 hệ thống này đều sử dụng cách tính dựa trên 6 chất gây ô nhiễm chính (PM2.5, PM10, cacbon
         , monoxit, sunfua dioxit, nitơ, dioxit và zone tầng mặt đất) trong một công thức phức tạp.
         Kết quả tính AQI từ cả 2 công thứ trên chỉ chênh lệch khoảng 200 trở xuống. Vì thế
-         hệ thống chỉ số của Mỹ mang lại điểm số cao hơn cho AQI dưới 200, nên người ta nghĩ rằng nó sẽ kịch liệt hơn. Ví lý do này, chỉ
-         số của Mỹ đã trở thành tiêu chuẩn chung trên thế giới.
-
+         hệ thống chỉ số của Mỹ mang lại điểm số cao hơn cho AQI dưới 200, nên người ta nghĩ rằng nó sẽ kịch liệt hơn. 
+         Ví lý do này, chỉ số của Mỹ đã trở thành tiêu chuẩn chung trên thế giới.
     </div>
     <div style={{paddingTop: "50px"}}>
         <div  className="card">

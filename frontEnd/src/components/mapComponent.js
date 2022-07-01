@@ -72,11 +72,14 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
 import '../css/mapDiv.css';
+import 'map-icons/dist/css/map-icons.css';
+
 const mapStyles = {
   width: '100%',
   height: '500px',
   position: 'sticky'
 };
+
 
 export class MapContainer extends Component {
   state = {
@@ -153,19 +156,32 @@ export class MapContainer extends Component {
       >
       { this.state.dataCity.map((data, index)=>{
         return (
-          <Marker
+          <Marker       
+          // icon= {{
+          //   path:"M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
+          //   fillColor: '#00CCBB',
+          //   fillOpacity: 1,
+          //   strokeColor: '',
+          //   strokeWeight: 0
+          // }}
+         
+          // {{
+          //   url: 'https://insulationpads.co.uk/wp-content/uploads/2017/10/Home.png',
+          //   scaledSize: new window.google.maps.Size(40, 40),
+          // }}
+          description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
           // onMouseover={this.onMarkerClick}
           // onMouseout={this.onClose}
           // title={'The marker`s title will appear as a tooltip.'}
           name=
           {<div>
-            <div style={{ fontSize:"20px"}}><i class="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name}</div>
+            <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
             <div>Humidity: {data.humidity}</div>
             <div>Temperature: {data.temperature}</div>
             <div>CO2: {data.co2}</div>
             <div>CO: {data.co}</div>
-            <div>NO: {data.temperature}</div>
+            <div>AQI: {data.AQI}</div>
           </div>
           }
           position={{lat: data.lat, lng: data.lng}} />

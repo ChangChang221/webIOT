@@ -1,5 +1,5 @@
 const city=require('../models/city');
-
+const history=require('../models/history');
 module.exports = {
     updateMQTT: async(dataUpdate) => {
         try {

@@ -23,6 +23,9 @@ var citySchema = new mongoose.Schema({
   },
   pm10: {
     type: String
+  },
+  AQI:{
+    type: String
   }
 }, {
   collection: 'city'
