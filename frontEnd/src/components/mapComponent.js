@@ -1,74 +1,3 @@
-// import './App.css'
-// import React, { useState, useEffect } from "react";
-
-// function App() {
-// const [data, setData] = useState("test");
-
-// // useEffect(() => {
-// //   async function fetchData() {
-// //     const res = await fetch('http://localhost:5000/')
-// //     const data = await res.json()
-// //     console.log(data)
-// // }
-// //   fetchData();
-// // },[]);
-
-
-
-// useEffect(() => {
-//   fetch("http://localhost:5000/send")
-//     .then(res => res.json())
-//     .then(data=>{
-//         setData(JSON.stringify(data));
-//         console.log("data",data)
-//     })
-//     .catch(() => {
-//       alert('failed to fetch');
-//     });
-// }, [])
-//   return (
-//     <form>
-//        <label>Hien thi
-//         <input type="text" id="mqtt" value={data} onChange={(e) => setData(e.target.value)}/>
-//       </label>
-//     </form>
-    
-//   );
-// }
-
-// export default App;
-
-
-
-
-// // import './App.css'
-// // import React from "react";
-
-// //  import { Connector } from 'mqtt-react-hooks';
-// //  import Status from "./Status"
-
-// // function App() {
-// // //   var options = {
-// // //     host: '97ff5a567fc942d896f17c1f4730142a.s2.eu.hivemq.cloud',
-// // //     port: 8883,
-// // //     protocol: 'mqtts',
-// // //     username: 'trangbg20@gmail.com',
-// // //     password: 'Trang2000'
-// // // }
-
-// // //initialize the MQTT client
-// //   return (
-
-// //      <Connector brokerUrl="tcp://broker.hivemq.com:1883">
-// //        <Status />
-// //        <div>hihi</div>
-// //    </Connector>
-// //   );
-// // }
-
-// // export default App;
-
-
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
 import '../css/mapDiv.css';
@@ -90,14 +19,6 @@ export class MapContainer extends Component {
     data: ''
   };
   componentDidMount(){
-  // fetch("http://localhost:5000/")
-  //   .then(res => res.json())
-  //   .then(data=>{
-  //       console.log("data",data)
-  //   })
-  //   .catch(() => {
-  //     alert('failed to fetch');
-  //   });
   this.timerID = setInterval(
     () => this.tick(),
     2000
@@ -171,10 +92,7 @@ export class MapContainer extends Component {
           // }}
           description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
-          // onMouseover={this.onMarkerClick}
-          // onMouseout={this.onClose}
-          // title={'The marker`s title will appear as a tooltip.'}
-          name=
+        name=
           {<div>
             <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
             <div>Humidity: {data.humidity}</div>

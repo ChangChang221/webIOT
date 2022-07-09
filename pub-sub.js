@@ -23,14 +23,6 @@ var db = mongoose.connection
 
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-let date_ob = new Date();
-// city.find({})
-// .then(data => {
-//     console.log("du lieu",data )
-// })
-// .catch(err => {
-//     console.log('err',err);
-// })
 
 
 function getSumPM(total, num){
@@ -60,7 +52,7 @@ function calculatorAQIByPM(x){
     return Math.round((500-401)/(500.4-350.5)*(x-350.5)+401);
   }
 }
-
+//let date_ob = new Date();
 // let a=`${date_ob.getUTCFullYear()}-0${date_ob.getUTCMonth()+1}-${date_ob.getUTCDate()}T00:00:00.000+00:00`;
 // console.log(a)
 
@@ -105,39 +97,45 @@ client.on('message', function (topic, message) {
 //    console.log('Received message:', message.toString());
 //    console.log(typeof message.toString())
     let dataMessage = JSON.parse(message);
+    dataMessage.date=new Date();
+    console.log("datamess", dataMessage)
     var history1 = new history(dataMessage);
- 
     // save model to database
-    history1.save(function (err, book) {
+    history1.save(function (err, history) {
       if (err) return console.error(err);
     });
     let a="";
+    let b="";
     let date_ob = new Date();
     let getMonth= date_ob.getUTCMonth()+1;
     let getDate= date_ob.getUTCDate();
     if(getMonth<10 && getDate<10){
       a=`${date_ob.getUTCFullYear()}-0${date_ob.getUTCMonth()+1}-0${date_ob.getUTCDate()}T00:00:00.000+00:00`;
+      b=`${date_ob.getUTCFullYear()}-0${date_ob.getUTCMonth()+1}-0${date_ob.getUTCDate()+1}T00:00:00.000+00:00`;
     }
     else if(getMonth<10 && getDate>10){
       a=`${date_ob.getUTCFullYear()}-0${date_ob.getUTCMonth()+1}-${date_ob.getUTCDate()}T00:00:00.000+00:00`;
+      b=`${date_ob.getUTCFullYear()}-0${date_ob.getUTCMonth()+1}-${date_ob.getUTCDate()+1}T00:00:00.000+00:00`;
     }
     else {
       a=`${date_ob.getUTCFullYear()}-${date_ob.getUTCMonth()+1}-${date_ob.getUTCDate()}T00:00:00.000+00:00`;
+      b=`${date_ob.getUTCFullYear()}-${date_ob.getUTCMonth()+1}-${date_ob.getUTCDate()+1}T00:00:00.000+00:00`;
     }
-    console.log("a",a)
+    console.log("a",a);
+    console.log("b",b);
     history.find({
-      "name": "bắc giang", "date": {
+      "name": dataMessage.name, "date": {
       "$gt": new Date(a),
-      "$lt": new Date(),
+      "$lt": new Date(b),
     }})
     .then(data=>{
-      let aqi= data.reduce(getSumPM, 0)/data.length;
-      dataMessage.AQI=calculatorAQIByPM(aqi)
-      console.log("calculatorAQIByPM(aqi)",dataMessage);
+      let averagePM= data.reduce(getSumPM, 0)/data.length;
+      dataMessage.AQI=calculatorAQIByPM(averagePM)
+      console.log("calculatorAQIByPM(averagePM)",dataMessage);
       cityController.updateMQTT(dataMessage);
     });
   }catch(e){
-    console.log("error")
+    console.log("error");
   }
 })
 
@@ -153,11 +151,9 @@ let dataPush={
   name: "hà nội",
   humidity: "200",
   temperature: "20",
-  co:"26",
-  co2:"26",
-  pm25:"55",
-  pm10: "28",
-  date: new Date()
+  co:"400",
+  co2:"556",
+  pm25:"35",
 };
 client.publish('mytopic', JSON.stringify(dataPush));
 //create a server object:
