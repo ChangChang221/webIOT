@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> dc0fd20a736d50e9b96dd3515ec2e68a8d7dbbb9
 import React from "react";
 import {
   BrowserRouter,
@@ -13,10 +9,6 @@ import GoogleApiWrapper from "./components/mapComponent.js";
 import AboutAQI from "./components/aboutAQI.component.js";
 import './css/main.css';
 import ChartAQI from "./components/chart.component.js";
-<<<<<<< HEAD
-=======
-
->>>>>>> dc0fd20a736d50e9b96dd3515ec2e68a8d7dbbb9
 function App() {
    
 return(
