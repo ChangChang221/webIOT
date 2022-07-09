@@ -192,33 +192,9 @@ class ChartAQI extends Component {
         text: "tiêu đề"
       }
     }
-    // data: {
-    //     labels: [
-    //         'Red',
-    //         'Green',
-    //         'Yellow'
-    //     ],
-    //     datasets: [{
-    //         data: [300, 50, 100],
-    //         backgroundColor: [
-    //         '#FF6384',
-    //         '#36A2EB',
-    //         '#FFCE56'
-    //         ],
-    //         hoverBackgroundColor: [
-    //         '#FF6384',
-    //         '#36A2EB',
-    //         '#FFCE56'
-    //         ]
-    //     }]
-    // }
   }
 
   componentDidMount() {
-    // this.timer = setInterval(
-    //   // () => this.increment("Hà Nội"),
-    //   1000
-    // )
     console.log("trang 1");
   }
 
@@ -305,13 +281,6 @@ class ChartAQI extends Component {
       },
       1000
     )
-    // setInterval(
-    //   () => {
-    //     console.log(inputSearch);
-    //     this.increment(inputSearch)
-    //   },
-    //   2000
-    // ) 
   }
 
   handleKeyPress=(event)=> {
@@ -355,7 +324,6 @@ class ChartAQI extends Component {
           <i className="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"30px", paddingRight:"10px", color:"#FF3300"}}/>
           Biểu đồ đường AQI theo thời gian</div>
         <Line data={this.state.dataAQI} key={1}/>      
-        {/* <Doughnut data = {this.state.data}/> */}
       </div>
       <div>
       <div className="chartLine">
@@ -363,14 +331,12 @@ class ChartAQI extends Component {
         <i className="fa fa-tint" aria-hidden="true" style={{fontSize:"30px", paddingRight:"10px", color:"#1E90FF"}}/>
         Biểu đồ đường độ ẩm theo thời gian</div>
       <Line data={this.state.datahumidity} key={2}/>      
-      {/* <Doughnut data = {this.state.data}/> */}
       </div>
       <div className="chartLine">
       <div style={{width: "100%", float:"left", margin:"25px 0px", textAlign:"center"}}>
         <i className="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"30px", paddingRight:"10px", color:"#FF3300"}}/>
         Biểu đồ đường nhiệt độ theo thời gian</div>
       <Line data={this.state.datatemperature} key={3}/>      
-      {/* <Doughnut data = {this.state.data}/> */}
       </div>
       </div>
 
