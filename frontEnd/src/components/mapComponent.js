@@ -19,14 +19,6 @@ export class MapContainer extends Component {
     data: ''
   };
   componentDidMount(){
-  // fetch("http://localhost:5000/")
-  //   .then(res => res.json())
-  //   .then(data=>{
-  //       console.log("data",data)
-  //   })
-  //   .catch(() => {
-  //     alert('failed to fetch');
-  //   });
   this.timerID = setInterval(
     () => this.tick(),
     2000
@@ -100,10 +92,7 @@ export class MapContainer extends Component {
           // }}
           description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
-          // onMouseover={this.onMarkerClick}
-          // onMouseout={this.onClose}
-          // title={'The marker`s title will appear as a tooltip.'}
-          name=
+        name=
           {<div>
             <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
             <div>Humidity: {data.humidity}</div>

@@ -1,14 +1,24 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc0fd20a736d50e9b96dd3515ec2e68a8d7dbbb9
 import React from "react";
 import {
   BrowserRouter,
   Routes,
   Route,
 } from "react-router-dom";
+
 import GoogleApiWrapper from "./components/mapComponent.js";
 import AboutAQI from "./components/aboutAQI.component.js";
 import './css/main.css';
 import ChartAQI from "./components/chart.component.js";
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc0fd20a736d50e9b96dd3515ec2e68a8d7dbbb9
 function App() {
+   
 return(
     <div style={{width: "100%"}}>
     <div className="container">
@@ -20,13 +30,13 @@ return(
             </div>
             <div className="menu-list">
                 <div className="tooltip">
-                    <a href="/" className="tooltip-content"> 
+                    <a href="/" className="tooltip-content" > 
                         <i id="iconMenu" style={{fontSize:"24px"}} className="fa fa-list-ul" ></i>
                         <div className="title-tooltip">Tổng quan</div>
                     </a>
                 </div>
                 <div className="tooltip">
-                    <a href="/chartAQI" className="tooltip-content ">
+                    <a href="/chartAQI" className="tooltip-content " >
                         {/* <div className="icon-tooltip cash-icon">
                         </div>           */}
                         <i id="iconMenu" style={{fontSize:"24px"}} className="fa fa-line-chart" ></i>                  

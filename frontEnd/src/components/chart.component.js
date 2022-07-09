@@ -1,145 +1,3 @@
-// import React, { useState, useEffect } from "react";
-// import { Chart } from "react-google-charts";
-
-// export const options = {
-//   chart: {
-//     title: "Box Office Earnings in First Two Weeks of Opening",
-//     subtitle: "in millions of dollars (USD)",
-//   },
-// };
-
-
-
-
-// export default function ChartAQI() {
-//   const[a,setA]= useState(5);
-//   const [dataChart, setData] = useState([
-//     [
-//       "Day",
-//       "AQI",
-//     ],
-//     [2, 2],
-//     [3, 3],
-//     [4, 4]
-//   ]);
-//   let datas=dataChart;
-
-//     useEffect(()=>{
-//       // setTimeout();
-//       // setInterval(() => {
-//       //    setA(a+1);
-//       //   fetch("http://localhost:5000/name?name=Hà Nội")
-//       //     .then(res => res.json())
-//       //     .then(dataRes=>{
-//       //         let data_now=[a, 2];
-//       //         if(dataChart.length==5){
-//       //            datas.push(data_now);
-//       //            datas.shift();
-//       //            setData(datas);
-//       //            console.log(dataChart);
-//       //           //  Chart.data=dataChart;
-//       //         }
-//       //         else{
-//       //           datas.push([a, 2]);
-//       //           setData(dataChart);
-//       //           console.log(dataChart);
-//       //         }
-//       //     })
-//       //     .catch((err) => {
-//       //       // alert('failed to fetch');
-//       //       console.log(err);
-//       //     });
-//       //   },1000);
-//       setA(a+1);
-      // setTimeout(() => {
-      //   // fetch("http://localhost:5000/name?name=Hà Nội")
-      //   //   .then(res => res.json())
-      //   //   .then(dataRes=>{
-      //   //       let data_now=[a, 2];
-      //   //       if(dataChart.length==5){
-      //   //          datas.push(data_now);
-      //   //          datas.shift();
-      //   //          setData(datas);
-      //   //          console.log(dataChart);
-      //   //         //  Chart.data=dataChart;
-      //   //       }
-      //   //       else{
-      //   //         datas.push([a, 2]);
-      //   //         setData(dataChart);
-      //   //         console.log(dataChart);
-      //   //       }
-      //   //   })
-      //   //   .catch((err) => {
-      //   //     // alert('failed to fetch');
-      //   //     console.log(err);
-      //   //   });
-//         let data_now=[a, 2];
-//               if(dataChart.length==5){
-//                  datas.push(data_now);
-//                  datas.shift();
-//                  setData(datas);
-//                  console.log(dataChart);
-//                 //  Chart.data=dataChart;
-//               }
-//               else{
-//                 datas.push([a, 2]);
-//                 setData(dataChart);
-//                 console.log(dataChart);
-//               }
-//       }, 2000);
-//     });
-//   return (
-//   <>
-//     <Chart
-//       chartType="Line"
-//       width="95%"
-//       height="400px"
-//       loader={<div>Loading Chart</div>}
-//       data={dataChart}
-//       options={options}
-//     />
-//     </>
-//   );
-// }
-//---------------------------------------------------------TEST--------------------
-
-// import React, { Component } from 'react';
-// import { Doughnut } from 'react-chartjs-2';
-
-// export default class ChartAQI extends Component {
-//   constructor() {
-//     super(this.props);
-//     this.chartReference = React.createRef();
-//     this.state = {
-//       name: 'React',      
-//       data: {
-//         labels: ['Red', 'Green', 'Blue'],
-//         datasets: [{
-//           data: [5, 7, 6],
-//           backgroundColor: ['red', 'green', 'blue']
-//         }]       
-//       }
-//     };
-
-//     setInterval(() => {
-//       const chart = this.chartReference.current.chartReference;
-//       chart.data.datasets[0].data = [
-//         Math.floor(Math.random() * 10) + 1,
-//         Math.floor(Math.random() * 10) + 1, 
-//         Math.floor(Math.random() * 10) + 1
-//       ];
-//       this.chartReference.update();
-//       chart.update();
-//     }, 2000); 
-//   }
-
-//   render(){
-//     return (
-//       <Doughnut ref={this.chartReference} data={this.state.data} redraw=/>
-//     )
-//   }
-// }
-//---------------TEST-----------------
 import React, { Component} from 'react';
 import {Line, Doughnut} from 'react-chartjs-2';
 import {Chart} from 'chart.js';
@@ -241,15 +99,6 @@ class ChartAQI extends Component {
             // alert('failed to fetch');
             console.log(err);
           });
-              // if(dataCopy.length==6){
-              //   dataCopy.push(7);
-              //   dataCopy.shift();
-              //   //  Chart.data=dataChart;
-              // }
-              // else{
-              //   dataCopy.push(7);
-              // }
- //   dataCopy[0] = dataCopy[0] + 50;
     datasetsCopy[0].data = dataCopy;
     datasetsCopy2[0].data = dataCopy2;
     datasetsCopy3[0].data = dataCopy3;
@@ -339,10 +188,7 @@ class ChartAQI extends Component {
       <Line data={this.state.datatemperature} key={3}/>      
       </div>
       </div>
-
       </>
-    
-      
     )
   }
 }
