@@ -10,7 +10,7 @@ import iconOrange from '../assets/orange.png';
 import iconVerypurle from '../assets/verypurple.png';
 const mapStyles = {
   width: '100%',
-  height: '500px',
+  height: '84vh',
   position: 'sticky'
 };
 
@@ -66,13 +66,24 @@ export class MapContainer extends Component {
   render() {
     return (
       
-      <div style={{width: "100%",
-        height: "100%", position:"sticky"}} id="outmap">
-      <h1 style={{fontSize: "24px", paddingBottom: "20px", paddingTop:"50px"}}></h1>
+      <div id="outmap">
+      {/* <div className='note-poistion'> */}
+        <div className='note-aqi'>
+          <div className='green'>Tốt</div>
+          <div className='yellow'>Trung bình</div>
+          <div className='orange'>Không lành mạnh cho các nhóm nhạy cảm</div>
+          <div className='red'>Không lành mạnh</div>
+          <div className='purple'>Rất không lành mạnh</div>
+          <div className='verypurple'>Nguy hiểm</div>
+        </div>
+      {/* </div> */}
+
+      
       <Map
         google={this.props.google}
         zoom={10}
-        style={mapStyles}
+        style={{width: "100%",
+        height:'calc(100vh - 174px)'}}
         initialCenter={
           {
             lat: 21.030653, 

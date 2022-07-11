@@ -17,7 +17,7 @@
 
 .header-content .title-content {
     display: flex;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
     color: #111;
     line-height: 36px;
@@ -49,10 +49,10 @@
     margin: 4px 16px 0 10px;
 }
 
-.main-table {
+.main-table { 
+    margin-top: 16px;
     margin-left: 16px;
     margin-right: 16px;
-    /* height: 705px; */
     display: flex;
     flex-direction: column;
 }
