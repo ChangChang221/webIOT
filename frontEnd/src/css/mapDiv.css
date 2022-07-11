@@ -1,9 +1,11 @@
+#outmap{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 .main-table > div{
     height: 100%;
     width: 100%;
-}
-.outmap >div{
-    position: sticky !important;
 }
 .map-icon {
     font-size: 24px;
@@ -11,4 +13,43 @@
     line-height: 48px;
     text-align: center;
     white-space: nowrap;
+}
+.note-aqi{
+    position: absolute;
+    top: calc(100vh - 222px);
+    left: 9px;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    z-index: 100;
+    font-size: 12px;
+    opacity: 0.8;
+}
+.note-aqi>div{
+    padding: 6px;
+}
+.note-aqi .green{
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    background-color: #7FFF00;
+}
+.note-aqi .yellow{
+    background-color: #FFFF00;
+}
+.note-aqi .orange{
+    background-color: #FF8C00;
+}
+.note-aqi .red{
+    background-color: #FF0000;
+    color: #FFFFFF;
+}
+.note-aqi .purple{
+    background-color: #CC0099;
+    color: #FFFFFF;
+}
+.note-aqi .verypurple{
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #660033;
+    color: #FFFFFF;
 }

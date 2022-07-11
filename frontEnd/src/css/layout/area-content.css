@@ -21,13 +21,10 @@
 .company {
     display: flex;
     align-items: center;
-    padding-left: 20px;
 }
 
 .company .main-company {
     display: flex;
-    font-size: 40px;
-    align-items: center;
     cursor: pointer;
 }
 
@@ -38,4 +35,42 @@
     padding-left: 10px;
     height: 15px;
     white-space: nowrap;
+}
+
+.company .three-stripes {
+    height: 24px;
+    width: 24px;
+    margin: 0 10px 0;
+    cursor: pointer;
+}
+
+.down-arrow-icon {
+    height: 14px;
+    width: 14px;
+    margin: 0 10px 0;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.user .user-main {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.user .rell-icon {
+    height: 24px;
+    width: 24px;
+    margin: 0 10px 0;
+}
+
+.user .avatar-user {
+    height: 32px;
+    width: 32px;
+    background-color: black;
+    margin: 0 10px 0;
 }
