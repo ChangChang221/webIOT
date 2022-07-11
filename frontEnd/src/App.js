@@ -65,10 +65,14 @@ return(
             </div>
             <div className="main-content">
                 <div className="header-content">
-                    <div className="title-content">CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>
-                    {/* <!-- <div class="button-add">
-                        <button id="btnAdd" class="m-button">Thêm mới nhân viên</button>
-                    </div> --> */}
+                    <BrowserRouter>
+                            <Routes>
+                                <Route path="/mapAQI" element={<div className="title-content">BẢN ĐỒ CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>} ></Route>
+                                <Route path="/about" element={<div className="title-content">THÔNG TIN CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>} ></Route>
+                                <Route path="/chartAQI" element={<div className="title-content">CHẤT LƯỢNG KHÔNG KHÍ CỦA CÁC TỈNH VIỆT NAM</div>} ></Route>
+                                <Route path="/" element={<div className="title-content">BẢN ĐỒ CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>}></Route>
+                            </Routes>
+                        </BrowserRouter>
                 </div>
                 <div className="content-table">
                     <div className="main-table">

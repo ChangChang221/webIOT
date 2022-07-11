@@ -62,8 +62,8 @@ export class MapContainer extends Component {
     return (
       
       <div style={{width: "100%",
-        height: "80%", position:"sticky"}} id="outmap">
-      <h1 style={{fontSize: "24px", paddingBottom: "20px", paddingTop:"50px"}}>Bản đồ chất lượng không khí Việt Nam</h1>
+        height: "100%", position:"sticky"}} id="outmap">
+      <h1 style={{fontSize: "24px", paddingBottom: "20px", paddingTop:"50px"}}></h1>
       <Map
         google={this.props.google}
         zoom={10}

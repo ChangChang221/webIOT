@@ -72,8 +72,15 @@ class ChartAQI extends Component {
     const datasetsCopy3 = this.state.dataAQI.datasets.slice(0);
     const dataCopy3 = datasetsCopy3[0].data.slice(0);
         fetch("http://localhost:5000/name?name="+city)
-          .then(res => res.json())
+          .then( res => res.json())
           .then(dataRes=>{
+              if(dataRes==undefined) {
+                console.log("erro");
+                clearInterval(this.timer);
+                alert("Không tìm thấy dữ liệu");
+                window.location.reload();
+                return 0;
+              }
               let date_now=new Date;
               if(dataCopy.length==6){
                 labelsCopy.push(date.getHours()+"h"+date.getMinutes()+"p"+date_now.getSeconds()+"s");
@@ -131,6 +138,12 @@ class ChartAQI extends Component {
       1000
     )
   }
+  handleOnSubmit = event => {
+    // 👇️ prevent page refresh
+    event.preventDefault();
+
+    console.log('form submitted ✅');
+  }
 
   handleKeyPress=(event)=> {
     if (event.key === 'Enter') {
@@ -150,27 +163,28 @@ class ChartAQI extends Component {
   render(){
     return(
       <>
-      <div style={{float:"right",display:"inline-block", marginTop:"50px"}}>
+      <form autocomplete="on" onsubmit="return false" onSubmit={this.handleOnSubmit}>
+      <div style={{float:"right",display:"inline-block", marginTop:"50px", marginRight:"25px"}}>
         <div   className="search">
-        <i className="fa fa-search" aria-hidden="true"  style={{fontSize:"20px", paddingRight:"5px", color:"#1E90FF", cursor:"pointer"}} onClick={this.handleClick}/>
-        <input
-          type="text" 
-          value={this.state.input}
-          onChange={(e) => 
-            this.setState({
-            input: (e.target.value)}
+          <i className="fa fa-search" aria-hidden="true"  style={{fontSize:"20px", paddingRight:"5px", color:"#1E90FF", cursor:"pointer"}} onClick={this.handleClick}/>
+          <input
+            type="text" 
+            value={this.state.input}
+            onChange={(e) => 
+              this.setState({
+              input: (e.target.value)}
             )}
-          onKeyPress={this.handleKeyPress}
-          placeholder={"Nhập tên thành phố"}
-          className="input"
-      />
+            onKeyPress={this.handleKeyPress}
+            placeholder={"Nhập tên thành phố"}
+            className="input"
+            required/>
+        </div>
+      <button type="submit" onClick={this.handleClick} className="button">Tìm kiếm</button>
       </div>
-    
-     <button type="submit" onClick={this.handleClick} className="button">Tìm kiếm</button>
-      </div>
+      </form>
       <div className="chartLine">
         <div style={{width: "100%", float:"left", margin:"25px 0px", textAlign:"center"}}>
-          <i className="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"30px", paddingRight:"10px", color:"#FF3300"}}/>
+          <i className="fa fa-smile-o" aria-hidden="true"  style={{fontSize:"30px", paddingRight:"10px", color:"#FF3300"}}/>
           Biểu đồ đường AQI theo thời gian</div>
         <Line data={this.state.dataAQI} key={1}/>      
       </div>
