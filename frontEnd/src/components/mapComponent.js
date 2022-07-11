@@ -1,79 +1,13 @@
-// import './App.css'
-// import React, { useState, useEffect } from "react";
-
-// function App() {
-// const [data, setData] = useState("test");
-
-// // useEffect(() => {
-// //   async function fetchData() {
-// //     const res = await fetch('http://localhost:5000/')
-// //     const data = await res.json()
-// //     console.log(data)
-// // }
-// //   fetchData();
-// // },[]);
-
-
-
-// useEffect(() => {
-//   fetch("http://localhost:5000/send")
-//     .then(res => res.json())
-//     .then(data=>{
-//         setData(JSON.stringify(data));
-//         console.log("data",data)
-//     })
-//     .catch(() => {
-//       alert('failed to fetch');
-//     });
-// }, [])
-//   return (
-//     <form>
-//        <label>Hien thi
-//         <input type="text" id="mqtt" value={data} onChange={(e) => setData(e.target.value)}/>
-//       </label>
-//     </form>
-    
-//   );
-// }
-
-// export default App;
-
-
-
-
-// // import './App.css'
-// // import React from "react";
-
-// //  import { Connector } from 'mqtt-react-hooks';
-// //  import Status from "./Status"
-
-// // function App() {
-// // //   var options = {
-// // //     host: '97ff5a567fc942d896f17c1f4730142a.s2.eu.hivemq.cloud',
-// // //     port: 8883,
-// // //     protocol: 'mqtts',
-// // //     username: 'trangbg20@gmail.com',
-// // //     password: 'Trang2000'
-// // // }
-
-// // //initialize the MQTT client
-// //   return (
-
-// //      <Connector brokerUrl="tcp://broker.hivemq.com:1883">
-// //        <Status />
-// //        <div>hihi</div>
-// //    </Connector>
-// //   );
-// // }
-
-// // export default App;
-
-
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
 import '../css/mapDiv.css';
 import 'map-icons/dist/css/map-icons.css';
-
+import iconRed from '../assets/red.png';
+import iconGreen from '../assets/green.png';
+import iconYellow from '../assets/yellow.png';
+import iconPurple from '../assets/purple.png';
+import iconOrange from '../assets/orange.png';
+import iconVerypurle from '../assets/verypurple.png';
 const mapStyles = {
   width: '100%',
   height: '500px',
@@ -90,14 +24,6 @@ export class MapContainer extends Component {
     data: ''
   };
   componentDidMount(){
-  // fetch("http://localhost:5000/")
-  //   .then(res => res.json())
-  //   .then(data=>{
-  //       console.log("data",data)
-  //   })
-  //   .catch(() => {
-  //     alert('failed to fetch');
-  //   });
   this.timerID = setInterval(
     () => this.tick(),
     2000
@@ -141,8 +67,8 @@ export class MapContainer extends Component {
     return (
       
       <div style={{width: "100%",
-        height: "80%", position:"sticky"}} id="outmap">
-      <h1 style={{fontSize: "24px", paddingBottom: "20px", paddingTop:"50px"}}>Bản đồ chất lượng không khí Việt Nam</h1>
+        height: "100%", position:"sticky"}} id="outmap">
+      <h1 style={{fontSize: "24px", paddingBottom: "20px", paddingTop:"50px"}}></h1>
       <Map
         google={this.props.google}
         zoom={10}
@@ -155,31 +81,27 @@ export class MapContainer extends Component {
         }
       >
       { this.state.dataCity.map((data, index)=>{
+        let url='';
+        if(data.AQI<51) url=iconGreen
+        else if(data.AQI<101) url=iconYellow
+        else if(data.AQI<151) url=iconOrange
+        else if(data.AQI<201) url=iconRed
+        else if(data.AQI<301) url=iconPurple
+        else if(data.AQI<501) url=iconVerypurle
         return (
-          <Marker       
-          // icon= {{
-          //   path:"M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
-          //   fillColor: '#00CCBB',
-          //   fillOpacity: 1,
-          //   strokeColor: '',
-          //   strokeWeight: 0
-          // }}
-         
-          // {{
-          //   url: 'https://insulationpads.co.uk/wp-content/uploads/2017/10/Home.png',
-          //   scaledSize: new window.google.maps.Size(40, 40),
-          // }}
+          <Marker                
+          icon ={{
+            url: url,
+            scaledSize: new window.google.maps.Size(40, 40),
+          }}
           description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
-          // onMouseover={this.onMarkerClick}
-          // onMouseout={this.onClose}
-          // title={'The marker`s title will appear as a tooltip.'}
-          name=
+        name=
           {<div>
             <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
             <div>Humidity: {data.humidity}</div>
             <div>Temperature: {data.temperature}</div>
-            <div>CO2: {data.co2}</div>
+            <div className="alo">CO2: {data.co2}</div>
             <div>CO: {data.co}</div>
             <div>AQI: {data.AQI}</div>
           </div>

@@ -1,7 +1,7 @@
 {
   "name": "webiot",
   "version": "1.0.0",
-  "description": "",
+  "description": "clone \r # CÀI ĐẶT THƯ VIỆN\r Phía backend \r - npm init\r - npm install mqtt --save\r - npm install cors\r - npm install express\r - npm install body-parser\r - npm i mongoose",
   "main": "pub-sub.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,18 @@
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "mongodb": "^4.6.0",
-    "mongoose": "^6.3.3",
+    "mongoose": "^6.4.1",
     "mqtt": "^4.3.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChangChang221/webIOT.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ChangChang221/webIOT/issues"
+  },
+  "homepage": "https://github.com/ChangChang221/webIOT#readme",
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
   }
 }
