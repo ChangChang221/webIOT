@@ -2,7 +2,12 @@ import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, InfoWindow, Marker} from 'google-maps-react';
 import '../css/mapDiv.css';
 import 'map-icons/dist/css/map-icons.css';
-
+import iconRed from '../assets/red.png';
+import iconGreen from '../assets/green.png';
+import iconYellow from '../assets/yellow.png';
+import iconPurple from '../assets/purple.png';
+import iconOrange from '../assets/orange.png';
+import iconVerypurle from '../assets/verypurple.png';
 const mapStyles = {
   width: '100%',
   height: '500px',
@@ -76,20 +81,19 @@ export class MapContainer extends Component {
         }
       >
       { this.state.dataCity.map((data, index)=>{
+        let url='';
+        if(data.AQI<51) url=iconGreen
+        else if(data.AQI<101) url=iconYellow
+        else if(data.AQI<151) url=iconOrange
+        else if(data.AQI<201) url=iconRed
+        else if(data.AQI<301) url=iconPurple
+        else if(data.AQI<501) url=iconVerypurle
         return (
-          <Marker       
-          // icon= {{
-          //   path:"M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z",
-          //   fillColor: '#00CCBB',
-          //   fillOpacity: 1,
-          //   strokeColor: '',
-          //   strokeWeight: 0
-          // }}
-         
-          // {{
-          //   url: 'https://insulationpads.co.uk/wp-content/uploads/2017/10/Home.png',
-          //   scaledSize: new window.google.maps.Size(40, 40),
-          // }}
+          <Marker                
+          icon ={{
+            url: url,
+            scaledSize: new window.google.maps.Size(40, 40),
+          }}
           description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
         name=
@@ -97,7 +101,7 @@ export class MapContainer extends Component {
             <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
             <div>Humidity: {data.humidity}</div>
             <div>Temperature: {data.temperature}</div>
-            <div>CO2: {data.co2}</div>
+            <div className="alo">CO2: {data.co2}</div>
             <div>CO: {data.co}</div>
             <div>AQI: {data.AQI}</div>
           </div>
