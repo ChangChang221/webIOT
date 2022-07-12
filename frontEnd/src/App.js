@@ -45,32 +45,19 @@ return(
         </div>
         <div className="area-content">
             <div className="header">
-                <div className="company">
-                    <div className="three-stripes"></div>
                     <div className="main-company">
                         <i className="fa fa-reddit" style={{color: "#6CC4A1"}}></i>
                         <div className="company-name">CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>
-                        <div className="down-arrow-icon"></div>
                     </div>
-
-                </div>
-                <div className="user">
-                    <div className="rell-icon"></div>
-                    <div className="user-main">
-                        <div className="avatar-user"></div>
-                        {/* <!-- <div className="user-name">Nguyễn Văn Mạnh</div>
-                        <div className="down-arrow-icon-avatar"></div> --> */}
-                    </div>
-                </div>
             </div>
             <div className="main-content">
                 <div className="header-content">
                     <BrowserRouter>
                             <Routes>
-                                <Route path="/mapAQI" element={<div className="title-content">BẢN ĐỒ CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>} ></Route>
-                                <Route path="/about" element={<div className="title-content">THÔNG TIN CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>} ></Route>
-                                <Route path="/chartAQI" element={<div className="title-content">CHẤT LƯỢNG KHÔNG KHÍ CỦA CÁC TỈNH VIỆT NAM</div>} ></Route>
-                                <Route path="/" element={<div className="title-content">BẢN ĐỒ CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>}></Route>
+                                <Route path="/mapAQI" element={<div className="title-content">Bản đồ chất lượng không khí Việt Nam</div>} ></Route>
+                                <Route path="/about" element={<div className="title-content">Thông tin chất lượng không khí Việt Nam</div>} ></Route>
+                                <Route path="/chartAQI" element={<div className="title-content">Chất lượng không khí của các tỉnh Việt Nam</div>} ></Route>
+                                <Route path="/" element={<div className="title-content">Bản đồ chất lượng không khí Việt Nam</div>}></Route>
                             </Routes>
                         </BrowserRouter>
                 </div>
