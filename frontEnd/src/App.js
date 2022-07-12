@@ -17,7 +17,7 @@ return(
         <div className="menu-container">
             <div className="logo-container">
                 <a href="/" className="logo">
-                    {/* <img src={require("./assets/logo.png")} alt="img-icon"/> */}
+                    <img src={require("./assets/logo11.png")} alt="img-icon"/>
                 </a>
             </div>
             <div className="menu-list">
@@ -46,7 +46,7 @@ return(
         <div className="area-content">
             <div className="header">
                     <div className="main-company">
-                        <i className="fa fa-reddit" style={{color: "#6CC4A1"}}></i>
+                        <img className="mini-logo" src={require("./assets/logo.png")} alt="img-icon"/>
                         <div className="company-name">CHẤT LƯỢNG KHÔNG KHÍ VIỆT NAM</div>
                     </div>
             </div>
