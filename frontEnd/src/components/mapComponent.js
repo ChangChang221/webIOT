@@ -8,6 +8,7 @@ import iconYellow from '../assets/yellow.png';
 import iconPurple from '../assets/purple.png';
 import iconOrange from '../assets/orange.png';
 import iconVerypurle from '../assets/verypurple.png';
+import hanoi from '../assets/hanoi.png'
 const mapStyles = {
   width: '100%',
   height: '84vh',
@@ -108,10 +109,22 @@ export class MapContainer extends Component {
           description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
         name=
-          {<div>
-            <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
-            <div>Humidity: {data.humidity}</div>
-            <div>Temperature: {data.temperature}</div>
+          {<div className='popup-aqi'>
+            {/* <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
+             */}
+            <div >
+             <img className='img-city' src='https://allimages.sgp1.digitaloceanspaces.com/photographercomvn/2020/12/Tong-hop-nhung-hinh-anh-Ha-Noi-dep-nhat.jpg'></img>
+            </div>
+            <div className='humidity'>
+            <i className="fa fa-tint" aria-hidden="true"></i>
+              <div>Humidity: {data.humidity}</div>
+
+            </div>
+            <div className='temperature'>
+             <i className="fa fa-thermometer-quarter" aria-hidden="true"></i>
+              <div>Temperature: {data.temperature}</div>
+
+            </div>
             <div className="alo">CO2: {data.co2}</div>
             <div>CO: {data.co}</div>
             <div>AQI: {data.AQI}</div>

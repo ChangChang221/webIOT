@@ -164,9 +164,9 @@ class ChartAQI extends Component {
     return(
       <>
       <form autocomplete="on" onsubmit="return false" onSubmit={this.handleOnSubmit}>
-      <div style={{float:"right",display:"inline-block", marginTop:"50px", marginRight:"25px"}}>
+      <div style={{float:"right",display:"inline-block", marginRight:"25px"}}>
         <div   className="search">
-          <i className="fa fa-search" aria-hidden="true"  style={{fontSize:"20px", paddingRight:"5px", color:"#1E90FF", cursor:"pointer"}} onClick={this.handleClick}/>
+          <i  onClick={this.handleClick} className="fa fa-search" aria-hidden="true"  style={{fontSize:"20px", paddingRight:"5px", color:"#1E90FF", cursor:"pointer"}} onClick={this.handleClick}/>
           <input
             type="text" 
             value={this.state.input}

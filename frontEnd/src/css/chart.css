@@ -4,6 +4,11 @@
     height: 50%;
     display: inline-block;
 }
+.chartLine>div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .button {
     background-color: #58257b; /* Màu của Quản trị mạng ^^ */
     border: none;
@@ -31,12 +36,14 @@
     box-shadow: 2px 2px 2px 2px blue;
   }
   .search{
+    border-radius: 4px;
     padding: 8px 27px 9px 15px;
     display: inline-block;
     border: 2px solid #00aced;
     margin-right: 10px;
   }
   .input{
+    
     border: none;
     outline:none;
   }

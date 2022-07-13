@@ -74,7 +74,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 var options = {
-    host: '10.13.177.62',
+    host: '10.13.187.47',
     port: 1883,
     protocol: 'TCP',
     // username: 'trangbg20@gmail.com',

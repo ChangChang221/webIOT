@@ -10,7 +10,7 @@ import '../css/aboutAQI.css';
 function AboutAQI(){
     return(
     <div style={{padding: "10px",margin:"0px"}}>
-        <h1 style={{fontSize: "24px", paddingBottom: "20px", paddingTop:"50px"}}>AQI là gì?</h1>
+        <h1 style={{fontSize: "24px", paddingBottom: "20px"}}>AQI là gì?</h1>
         <div style={{color:"black", textAlign: "justify"}}> AQI, hoặc là Chỉ số chất lượng không khí, là chỉ số theo 
                 dõi mức độ chất lượng không khí cho công chúng. Chỉ số này
                 dao động từ 0 đến 500, chỉ số càng cao thể hiện mức độ ô nhiễm
