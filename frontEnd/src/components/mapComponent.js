@@ -90,7 +90,7 @@ export class MapContainer extends Component {
         google={this.props.google}
         zoom={10}
         style={{width: "100%",
-        height:'calc(100vh - 174px)'}}
+        height:'calc(100vh - 154px)'}}
         initialCenter={
           {
             lat: 21.030653, 

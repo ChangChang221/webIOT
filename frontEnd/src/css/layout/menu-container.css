@@ -24,13 +24,12 @@
 
 .logo-container .logo {
     display: flex;
-    height: 32px;
+    height: 188px;
     flex-grow: 2;
+    margin-left: -10px;
 }
 
-.menu-list {
-    padding-top: 14px;
-}
+
 
 .menu-list .tooltip-content {
     display: flex;

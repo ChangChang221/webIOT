@@ -11,13 +11,12 @@
     justify-content: space-between;
     height: 36px;
     align-items: stretch;
-    margin-top: 24px;
-    margin-bottom: 24px;
+    margin: 10px 0;
 }
 
 .header-content .title-content {
     display: flex;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
     color: #111;
     line-height: 36px;
