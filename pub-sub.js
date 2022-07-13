@@ -74,11 +74,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 var options = {
-    host: '10.13.187.47',
+    host: '192.168.0.110',
     port: 1883,
     protocol: 'TCP',
     // username: 'trangbg20@gmail.com',
     // password: 'Trang2000'
+
 }
 
 //initialize the MQTT client
@@ -147,8 +148,8 @@ client.subscribe('mytopic');
 let dataPush = {
     id: "62808211ee8fefe86e989d2e",
     name: "hà nội",
-    humidity: "200",
-    temperature: "20",
+    humidity: 100,
+    temperature: "30",
     co: "26",
     co2: "26",
     pm25: "55",

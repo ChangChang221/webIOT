@@ -8,7 +8,13 @@ import iconYellow from '../assets/yellow.png';
 import iconPurple from '../assets/purple.png';
 import iconOrange from '../assets/orange.png';
 import iconVerypurle from '../assets/verypurple.png';
-import hanoi from '../assets/hanoi.png'
+import faceGreen from '../assets/ic-face-green.svg';
+import faceYellow from '../assets/ic-face-yellow.svg';
+import faceOrage from '../assets/ic-face-orange.svg';
+import faceRed from '../assets/ic-face-red.svg';
+import facePurple from '../assets/ic-face-purple.svg';
+import faceMaroon from '../assets/ic-face-maroon.svg';
+
 const mapStyles = {
   width: '100%',
   height: '84vh',
@@ -25,9 +31,10 @@ export class MapContainer extends Component {
     data: ''
   };
   componentDidMount(){
+    // this.tick()
   this.timerID = setInterval(
     () => this.tick(),
-    2000
+    1000
   );
   }
   componentWillUnmount() {
@@ -94,12 +101,59 @@ export class MapContainer extends Component {
       >
       { this.state.dataCity.map((data, index)=>{
         let url='';
-        if(data.AQI<51) url=iconGreen
-        else if(data.AQI<101) url=iconYellow
-        else if(data.AQI<151) url=iconOrange
-        else if(data.AQI<201) url=iconRed
-        else if(data.AQI<301) url=iconPurple
-        else if(data.AQI<501) url=iconVerypurle
+        let face='';
+        let background='';
+        let miniBackground='';
+        let aboutTypeAQI='';
+        let colorText='';
+        if(data.AQI<51) {
+          url=iconGreen;
+          face= faceGreen;
+          background="#A8E05F";
+          miniBackground="#87C13C"
+          aboutTypeAQI='Tốt'
+          colorText='#607631'
+        }
+        else if(data.AQI<101) {
+          url=iconYellow;
+          face=faceYellow
+          background="#FDD64B"
+          miniBackground="#EFBE1D"
+          aboutTypeAQI='Trung bình'
+          colorText='#8c6c1d'
+        }
+        else if(data.AQI<151) {
+          url=iconOrange;
+          face=faceOrage;
+          miniBackground="#F27B2F"
+          background="#FF9B57"
+          aboutTypeAQI='Không lành mạnh cho các nhóm nhạy cảm'
+          colorText='#974A20;'
+        }
+        else if(data.AQI<201) {
+          url=iconRed;
+          face=faceRed;
+          background="#FE6A69"
+          miniBackground="#E84B50"
+          aboutTypeAQI='Không lành mạnh'
+          colorText='#942431'
+        }
+        else if(data.AQI<301) {
+          url=iconPurple;
+          face=facePurple;
+          background="#A97ABC"
+          miniBackground="#8A5D9D"
+          aboutTypeAQI='Rất không lành mạnh'
+          colorText='#543b63'
+        }
+        else if(data.AQI<501) {
+          url=iconVerypurle;
+          face=faceMaroon;
+          background="#a070b6"
+          miniBackground="#69103d"
+          aboutTypeAQI='Nguy hiểm'
+          colorText=''
+        }
         return (
           <Marker                
           icon ={{
@@ -110,24 +164,58 @@ export class MapContainer extends Component {
           onClick={this.onMarkerClick}
         name=
           {<div className='popup-aqi'>
-            {/* <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
-             */}
-            <div >
-             <img className='img-city' src='https://allimages.sgp1.digitaloceanspaces.com/photographercomvn/2020/12/Tong-hop-nhung-hinh-anh-Ha-Noi-dep-nhat.jpg'></img>
+            <div className="popup-header" style={{background}}>
+              <div className='main-header-aqi' >
+                <div className='value-aqi'style={{background:miniBackground}}>
+                  <div style={{fontSize:'12px',paddingBottom:'20px'}}>US AQI</div>
+                  <div>{data.AQI}</div>
+                </div>
+                <div style={{color:colorText}} className='place-aqi'>
+                  <div>CHỈ SỐ AQI TRỰC TIẾP:</div>
+                  <div style={{fontSize:'24px'}}>{aboutTypeAQI}</div>
+              </div>
+              </div>
+              <div className='face-type'>
+                <img src={face}></img>
+              </div>
             </div>
-            <div className='humidity'>
-            <i className="fa fa-tint" aria-hidden="true"></i>
-              <div>Humidity: {data.humidity}</div>
-
+            <div className='popup-main'>
+              <div className='overview-aqi'>
+                <div style={{fontWeight:'700',color:'#449FBC',fontSize:'15px'}}>Tổng quan</div>
+                <div style={{fontSize:'14px'}}>Chất lượng không khí hiện tại gần {data.name} như thế nào?</div>
+              </div>
+              <div className='main-aqi'>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Mức ô nhiễm không khí</th>
+                      <th>Chỉ số chất lượng không khí</th>
+                      <th>Chất gây ô nhiễm chính</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{aboutTypeAQI}</td>
+                      <td>{data.AQI} US AQI</td>
+                      <td>PM2.5</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div className='detail-aqi'>
+                <div style={{fontWeight:'700',color:'#449FBC',fontSize:'15px'}}>Chất lượng không khí:</div>
+                <div className='detail'>
+                  <div>
+                    <div><i className="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"14px", paddingRight:"6px", color:"#FF3300"}}/>Nhiệt độ: {data.temperature} <sup>o</sup>C</div>
+                    <div><i className="fa fa-tint" aria-hidden="true" style={{fontSize:"14px", paddingRight:"6px", color:"#1E90FF"}}/>Độ ẩm: {data.humidity} %</div>
+                  </div>
+                  <div>
+                    <div><i class="fa fa-cloud" aria-hidden="true" style={{fontSize:"14px", paddingRight:"6px", color:"#FF3300"}}></i>CO2: {data.co2} µg/m³</div>
+                    <div><i class="fa fa-cloud" aria-hidden="true" style={{fontSize:"14px", paddingRight:"6px", color:"#FF3300"}}></i>CO: {data.co} µg/m³</div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className='temperature'>
-             <i className="fa fa-thermometer-quarter" aria-hidden="true"></i>
-              <div>Temperature: {data.temperature}</div>
-
-            </div>
-            <div className="alo">CO2: {data.co2}</div>
-            <div>CO: {data.co}</div>
-            <div>AQI: {data.AQI}</div>
           </div>
           }
           position={{lat: data.lat, lng: data.lng}} />
