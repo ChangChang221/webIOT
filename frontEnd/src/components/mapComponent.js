@@ -8,6 +8,12 @@ import iconYellow from '../assets/yellow.png';
 import iconPurple from '../assets/purple.png';
 import iconOrange from '../assets/orange.png';
 import iconVerypurle from '../assets/verypurple.png';
+import faceGreen from '../assets/ic-face-green.svg';
+import faceYellow from '../assets/ic-face-yellow.svg';
+import faceOrage from '../assets/ic-face-orange.svg';
+import faceRed from '../assets/ic-face-red.svg';
+import facePurple from '../assets/ic-face-purple.svg';
+import faceMaroon from '../assets/ic-face-maroon.svg';
 const mapStyles = {
   width: '100%',
   height: '84vh',
@@ -24,9 +30,10 @@ export class MapContainer extends Component {
     data: ''
   };
   componentDidMount(){
+    // this.tick()
   this.timerID = setInterval(
     () => this.tick(),
-    2000
+    1000
   );
   }
   componentWillUnmount() {
@@ -93,12 +100,45 @@ export class MapContainer extends Component {
       >
       { this.state.dataCity.map((data, index)=>{
         let url='';
-        if(data.AQI<51) url=iconGreen
-        else if(data.AQI<101) url=iconYellow
-        else if(data.AQI<151) url=iconOrange
-        else if(data.AQI<201) url=iconRed
-        else if(data.AQI<301) url=iconPurple
-        else if(data.AQI<501) url=iconVerypurle
+        let face='';
+        let background='';
+        let aboutTypeAQI=''
+        if(data.AQI<51) {
+          url=iconGreen;
+          face= faceGreen;
+          background="#7FFF00";
+          aboutTypeAQI='Good'
+        }
+        else if(data.AQI<101) {
+          url=iconYellow;
+          face=faceYellow
+          background="#FFFF00"
+          aboutTypeAQI='Unhealthy for sensitive groups'
+        }
+        else if(data.AQI<151) {
+          url=iconOrange;
+          face=faceOrage;
+          background="#FF8C00"
+          aboutTypeAQI='Unhealthy'
+        }
+        else if(data.AQI<201) {
+          url=iconRed;
+          face=faceRed;
+          background="#FF0000"
+          aboutTypeAQI='Very unhealthy'
+        }
+        else if(data.AQI<301) {
+          url=iconPurple;
+          face=facePurple;
+          background="#CC0099"
+          aboutTypeAQI='Hazardous'
+        }
+        else if(data.AQI<501) {
+          url=iconVerypurle;
+          face=faceMaroon;
+          background="#660033"
+          aboutTypeAQI='Good'
+        }
         return (
           <Marker                
           icon ={{
@@ -108,13 +148,20 @@ export class MapContainer extends Component {
           description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
         name=
-          {<div>
-            <div style={{ fontSize:"20px"}}><i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}</div>
-            <div>Humidity: {data.humidity}</div>
-            <div>Temperature: {data.temperature}</div>
-            <div className="alo">CO2: {data.co2}</div>
-            <div>CO: {data.co}</div>
-            <div>AQI: {data.AQI}</div>
+          {<div style={{padding:"3px"}}>
+            <div className="popupTitle" style={{ fontSize:"20px"}}>
+              <i className="fa fa-building"style={{paddingRight:"5px", fontSize:"20px", color:"#008000"}}/>{data.name.toUpperCase()}
+            </div>
+            <div className="popupIcon" style={{background}}>
+              <img src={face}/>
+              <div className='popupAQI'>{data.AQI}- {aboutTypeAQI}</div>
+            </div>
+            <div className='popupMain'>
+              <div>Humidity: {data.humidity}</div>
+              <div>Temperature: {data.temperature}</div>
+              <div>CO2: {data.co2}</div>
+              <div>CO: {data.co}</div>
+            </div>
           </div>
           }
           position={{lat: data.lat, lng: data.lng}} />

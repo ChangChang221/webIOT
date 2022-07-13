@@ -53,3 +53,24 @@
     background-color: #660033;
     color: #FFFFFF;
 }
+.popupTitle{
+    padding: 0px 20px;
+    text-align: center;
+    margin-bottom: 5px ;
+    border-bottom: 0.6px solid rgb(114, 113, 113);
+}
+.popupIcon{
+    max-width: 200px;
+    max-height: 60xp;
+    box-sizing: border-box;
+    font-size: 25px;
+}
+.popupAQI{
+    margin-left: 25px;
+    display: inline-block;
+}
+.popupMain{
+    margin-top: 5px ;
+    border-top: 0.6px solid rgb(114, 113, 113);
+    padding: 5px 0px;
+}
