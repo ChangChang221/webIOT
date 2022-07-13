@@ -28,7 +28,7 @@ function AboutAQI(){
                 <div className="left-card">
                 <div  className="card">
                         <div className="card-title">
-                                <img src={iconGreen} alt="img-icon"style={{backgroundColor:"#7FFF00"}} className="card-img"/>
+                                <img src={iconGreen} alt="img-icon"style={{backgroundColor:"#A8E05F"}} className="card-img"/>
                         </div>
                         <div className="card-main">
                         <h1 >0-50 Tốt</h1>
@@ -38,7 +38,7 @@ function AboutAQI(){
                 </div>
                 <div className="card">
                         <div className="card-title">
-                                <img src={iconYellow} alt="img-icon"style={{ backgroundColor:"#FFFF00"}}  className="card-img"/>
+                                <img src={iconYellow} alt="img-icon"style={{ backgroundColor:"#FDD64B"}}  className="card-img"/>
                         </div>
                         <div className="card-main">
                         <h1 >51-100 Trung bình</h1>
@@ -49,7 +49,7 @@ function AboutAQI(){
                 </div>
                 <div className="card">
                         <div className="card-title">
-                                <img src={iconOrange} alt="img-icon"style={{ backgroundColor:"#FF8C00"}}  className="card-img"/>
+                                <img src={iconOrange} alt="img-icon"style={{ backgroundColor:"#FF9B57"}}  className="card-img"/>
                         </div>
                         <div  className="card-main">
                         <h1>101-150 Xấu</h1>
@@ -63,7 +63,7 @@ function AboutAQI(){
                 <div className="card">
                 
                 <div className="card-title">
-                        <img src={iconRed} alt="img-icon"style={{ backgroundColor:"#FF0000"}} className="card-img"/>
+                        <img src={iconRed} alt="img-icon"style={{ backgroundColor:"#FE6A69"}} className="card-img"/>
                 </div>
                 <div className="card-main">
                 <h1>151-200 Kém</h1>
@@ -74,7 +74,7 @@ function AboutAQI(){
         </div>
         <div className="card">
                 <div className="card-title">
-                        <img src={iconPurple} alt="img-icon"style={{ backgroundColor:"#CC0099"}} className="card-img"/>
+                        <img src={iconPurple} alt="img-icon"style={{ backgroundColor:"#A97ABC"}} className="card-img"/>
                 </div>
                 <div className="card-main">
                 <h1>201-300 Rất kém</h1>
