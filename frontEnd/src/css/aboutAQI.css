@@ -1,10 +1,9 @@
-.main-aqi{
+.main-aqi-info{
     width: 100%;
     padding-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
 }
 .left-card{
     display: flex;
@@ -40,7 +39,7 @@
     .right-card{
         padding-left: 0px ;
     }
-    .main-aqi{
+    .main-aqi-info{
         display: block;
     }    
 }

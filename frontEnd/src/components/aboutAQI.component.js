@@ -24,7 +24,7 @@ function AboutAQI(){
                 hệ thống chỉ số của Mỹ mang lại điểm số cao hơn cho AQI dưới 200, nên người ta nghĩ rằng nó sẽ kịch liệt hơn. 
                 Ví lý do này, chỉ số của Mỹ đã trở thành tiêu chuẩn chung trên thế giới.
         </div>
-        <div className="main-aqi">
+        <div className="main-aqi-info">
                 <div className="left-card">
                 <div  className="card">
                         <div className="card-title">
