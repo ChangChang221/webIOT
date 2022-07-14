@@ -1,11 +1,11 @@
-/* .main-aqi{
+.main-aqi{
     width: 100%;
     padding-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     
-} */
+}
 .left-card{
     display: flex;
     flex-direction: column;
@@ -35,4 +35,12 @@
 .card-img{
     padding: 10px;
     border-radius: 5px;
+}
+@media only screen and (max-width: 800px) {
+    .right-card{
+        padding-left: 0px ;
+    }
+    .main-aqi{
+        display: block;
+    }    
 }
