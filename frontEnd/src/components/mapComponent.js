@@ -152,7 +152,7 @@ export class MapContainer extends Component {
           background="#a070b6"
           miniBackground="#69103d"
           aboutTypeAQI='Nguy hiểm'
-          colorText=''
+          colorText='#69103d'
         }
         return (
           <Marker                
