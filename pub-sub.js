@@ -74,12 +74,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 var options = {
-    host: '192.168.0.110',
-    port: 1883,
-    protocol: 'TCP',
-    // username: 'trangbg20@gmail.com',
-    // password: 'Trang2000'
-
+    host: '68c31a99590a4e37b25ad1b5789d04df.s1.eu.hivemq.cloud',
+    port: 8883,
+    protocol: 'mqtts',
+    username: 'trangbg20@gmail.com',
+    password: 'Trang2000'
 }
 
 //initialize the MQTT client
