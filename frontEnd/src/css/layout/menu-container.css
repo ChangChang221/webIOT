@@ -12,6 +12,7 @@
     background-color: rgb(56, 57, 61);
     justify-items: center;
     align-items: center;
+    margin-bottom: 8px;
 }
 
 .logo-container .menu-container-option {
@@ -59,6 +60,12 @@
 }
 
 .menu-list .tooltip-content:focus {
+    background-color: #58595d;
+    border-left: 6px solid rgb(44, 160, 28);
+    padding-left: 10px;
+}
+
+.menu-list .tooltip-content.active {
     background-color: #58595d;
     border-left: 6px solid rgb(44, 160, 28);
     padding-left: 10px;
