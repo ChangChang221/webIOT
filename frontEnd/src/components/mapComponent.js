@@ -146,7 +146,7 @@ export class MapContainer extends Component {
           aboutTypeAQI='Rất không lành mạnh'
           colorText='#543b63'
         }
-        else if(data.AQI<501) {
+        else if(data.AQI>300) {
           url=iconVerypurle;
           face=faceMaroon;
           background="#a070b6"
@@ -154,6 +154,12 @@ export class MapContainer extends Component {
           aboutTypeAQI='Nguy hiểm'
           colorText='#69103d'
         }
+        <Marker
+          value={
+          <div style={{background:'red',height:'30px',width:'30px'}}>alo</div>
+        }
+        position={{lat: data.lat, lng: data.lng}}
+        />
         return (
           <Marker                
           icon ={{
@@ -162,7 +168,7 @@ export class MapContainer extends Component {
           }}
           description= 'Vikash Rathee. <strong> This is test Description</strong> <br/>'
           onClick={this.onMarkerClick}
-        name=
+          name=
           {<div className='popup-aqi'>
             <div className="popup-header" style={{background}}>
               <div className='main-header-aqi' >
@@ -197,7 +203,7 @@ export class MapContainer extends Component {
                     <tr>
                       <td>{aboutTypeAQI}</td>
                       <td>{data.AQI} US AQI</td>
-                      <td>PM2.5</td>
+                      <td>PM2.5: {data.pm25}µg/m³</td>
                     </tr>
                   </tbody>
                 </table>
@@ -206,8 +212,8 @@ export class MapContainer extends Component {
                 <div style={{fontWeight:'700',color:'#449FBC',fontSize:'15px'}}>Chất lượng không khí:</div>
                 <div className='detail'>
                   <div>
-                    <div><i className="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"14px", paddingRight:"6px", color:"#FF3300"}}/>Nhiệt độ: {data.temperature} <sup>o</sup>C</div>
-                    <div><i className="fa fa-tint" aria-hidden="true" style={{fontSize:"14px", paddingRight:"6px", color:"#1E90FF"}}/>Độ ẩm: {data.humidity} %</div>
+                    <div><i className="fa fa-thermometer-quarter" aria-hidden="true"  style={{fontSize:"14px", paddingRight:"6px", color:"#FF3300"}}/>Nhiệt độ: {data.temperature}<sup>o</sup>C</div>
+                    <div><i className="fa fa-tint" aria-hidden="true" style={{fontSize:"14px", paddingRight:"6px", color:"#1E90FF"}}/>Độ ẩm: {data.humidity}%</div>
                   </div>
                   <div>
                     <div><i class="fa fa-cloud" aria-hidden="true" style={{fontSize:"14px", paddingRight:"6px", color:"#FF3300"}}></i>CO2: {data.co2} µg/m³</div>
@@ -218,13 +224,15 @@ export class MapContainer extends Component {
             </div>
           </div>
           }
-          position={{lat: data.lat, lng: data.lng}} />
+          position={{lat: data.lat, lng: data.lng}} 
+          />
         );
       })}
         <InfoWindow
           marker={this.state.activeMarker}
           visible={this.state.showingInfoWindow}
           onClose={this.onClose}
+          
         >
           <div>
             <h4>{this.state.selectedPlace.name}</h4>

@@ -74,7 +74,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 var options = {
-    host: '192.168.43.185',
+    host: '192.168.0.110',
     port: 1883,
     protocol: 'TCP',
     // username: 'trangbg20@gmail.com',
@@ -100,6 +100,11 @@ client.on('message', function(topic, message) {
         //    console.log('Received message:', message.toString());
         //    console.log(typeof message.toString())
         let dataMessage = JSON.parse(message);
+        dataMessage.humidity= parseFloat(dataMessage.humidity).toFixed(2);
+        dataMessage.temperature= parseFloat(dataMessage.temperature).toFixed(2);
+        dataMessage.co=parseFloat(dataMessage.co).toFixed(0); //parseInt(dataMessage.co,10);
+        dataMessage.co2=parseFloat(dataMessage.co2).toFixed(0);
+        dataMessage.pm25=parseFloat(dataMessage.pm25).toFixed(2);
         dataMessage.date = new Date();
         console.log("datapush", dataMessage);
         var history1 = new history(dataMessage);
@@ -145,18 +150,18 @@ client.on('close', () => {
 client.subscribe('mytopic');
 // publish message 'Hello' to topic 'my/test/topic'
 
-let dataPush = {
-    id: "62808211ee8fefe86e989d2e",
-    name: "hà nội",
-    humidity: 100,
-    temperature: "30",
-    co: "26",
-    co2: "26",
-    pm25: "55",
-    pm10: "28",
-    date: new Date()
-};
-client.publish('mytopic', JSON.stringify(dataPush));
+// let dataPush = {
+//     id: "62808211ee8fefe86e989d2e",
+//     name: "hà nội",
+//     humidity: 100,
+//     temperature: "30",
+//     co: "26",
+//     co2: "26",
+//     pm25: "55",
+//     pm10: "28",
+//     date: new Date()
+// };
+// client.publish('mytopic', JSON.stringify(dataPush));
 //create a server object:
 
 app.get('/', (req, res) => {
@@ -174,7 +179,6 @@ app.get('/name', (req, res) => {
         if (err) {
             console.log("err");
         } else {
-            console.log("thành công");
             res.json(city);
         }
     });
