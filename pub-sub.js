@@ -2,7 +2,7 @@ var mqtt = require('mqtt')
 var bodyParser = require("body-parser");
 const express = require('express')
 const app = express()
-const port = 5000
+const port = process.env.PORT || 5000;
 const cors = require('cors');
 const city = require('./models/city');
 const history = require('./models/history');
@@ -192,7 +192,9 @@ app.get("/send", function(req, res) {
     });
 });
 
-
+if (process.env.NODE_ENV==="production"){
+    app.use(express.static('frontend/build'))
+}
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
