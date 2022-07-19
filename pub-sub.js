@@ -195,16 +195,16 @@ app.get("/api/send", function(req, res) {
 // app.get('*',function(req, res) {
 //     res.sendFile(path.join(__dirname, './frontend/public', 'index.html'))
 // })
-const path = require('path');
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("frontend/build"));
+// const path = require('path');
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("frontend/build"));
   
-    app.use("*", (req, res) =>{
-        console.log("frontend")
-        res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
-    }
-    );
-  }
+//     app.use("*", (req, res) =>{
+//         console.log("frontend")
+//         res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
+//     }
+//     );
+//   }
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
