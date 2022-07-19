@@ -5,7 +5,9 @@
   "main": "pub-sub.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node pub-sub.js"
+    "dev": "nodemon pub-sub.js",
+    "start": "node pub-sub.js",
+    "client": "cd frontend && npm start"
   },
   "author": "",
   "license": "ISC",
