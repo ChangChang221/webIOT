@@ -165,7 +165,7 @@ client.subscribe('mytopic');
 // client.publish('mytopic', JSON.stringify(dataPush));
 //create a server object:
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     city.find(function(err, city) {
         if (err) {
             console.log(err);
@@ -174,7 +174,7 @@ app.get('/', (req, res) => {
         }
     });
 });
-app.get('/name', (req, res) => {
+app.get('/api/name', (req, res) => {
     const city_name = req.query.name;
     city.findOne({ name: city_name }, function(err, city) {
         if (err) {
@@ -184,7 +184,7 @@ app.get('/name', (req, res) => {
         }
     });
 });
-app.get("/send", function(req, res) {
+app.get("/api/send", function(req, res) {
     client.publish('mytopic', dataPush);
     // console.log("req.body.message");
     res.send({
@@ -192,12 +192,13 @@ app.get("/send", function(req, res) {
     });
 });
 const path = require('path');
-if (process.env.NODE_ENV==="production"){
-    app.use(express.static(path.join(__dirname, 'frontend/build')));
-    app.get('*', function(req, res) {
-        res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-      });
-}
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("frontend/build"));
+  
+    app.use("*", (req, res) =>
+      res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
+    );
+  }
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })

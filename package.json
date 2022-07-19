@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/ChangChang221/webIOT#readme",
   "devDependencies": {
+    "nodemon": "^2.0.19",
     "react-scripts": "^5.0.1"
   }
 }

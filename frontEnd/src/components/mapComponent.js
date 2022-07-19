@@ -42,7 +42,7 @@ export class MapContainer extends Component {
   }
 
   tick() {
-  fetch("http://localhost:5000/")
+  fetch("http://localhost:5000/api/")
     .then(res => res.json())
     .then(dataRes=>{
       //  console.log("data", dataRes)
