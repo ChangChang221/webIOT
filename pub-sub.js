@@ -152,20 +152,6 @@ client.on('close', () => {
 client.subscribe('mytopic');
 // publish message 'Hello' to topic 'my/test/topic'
 
-<<<<<<< HEAD
-let dataPush = {
-    id: "62808211ee8fefe86e989d2e",
-    name: "hà nội",
-    humidity: "100.52222",
-    temperature: "30.3333",
-    co: "2622.222",
-    co2: "2633.444",
-    pm25: "55",
-    pm10: "28",
-    date: new Date()
-};
-client.publish('mytopic', JSON.stringify(dataPush));
-=======
 // let dataPush = {
 //     id: "62808211ee8fefe86e989d2e",
 //     name: "hà nội",
@@ -178,7 +164,6 @@ client.publish('mytopic', JSON.stringify(dataPush));
 //     date: new Date()
 // };
 // client.publish('mytopic', JSON.stringify(dataPush));
->>>>>>> c1033dae0bb49f80b9534bd7eba36a7a08dea447
 //create a server object:
 
 app.get('/', (req, res) => {
