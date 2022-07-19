@@ -192,13 +192,19 @@ app.get("/api/send", function(req, res) {
         message: dataPush
     });
 });
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static("frontend/public"));
+app.get("/*", function(req, res) {
+    client.publish('mytopic', dataPush);
+    // console.log("req.body.message");
+    res.sendFile(path.join(__dirname, "frontend", "public", "index.html"))
+});
+
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static("frontend/public"));
   
-    app.use("*", (req, res) =>
-      res.sendFile(path.join(__dirname, "frontend", "public", "index.html"))
-    );
-  }
+//     app.use("/*", (req, res) =>
+//       res.sendFile(path.join(__dirname, "frontend", "public", "index.html"))
+//     );
+//   }
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
