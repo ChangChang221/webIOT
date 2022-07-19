@@ -79,6 +79,9 @@ var options = {
     protocol: 'mqtts',
     username: 'trangbg20@gmail.com',
     password: 'Trang2000'
+    // host: '192.168.0.110',
+    // port: 1883,
+    // protocol: 'TCP',
 }
 
 //initialize the MQTT client
@@ -149,6 +152,7 @@ client.on('close', () => {
 client.subscribe('mytopic');
 // publish message 'Hello' to topic 'my/test/topic'
 
+<<<<<<< HEAD
 let dataPush = {
     id: "62808211ee8fefe86e989d2e",
     name: "hà nội",
@@ -161,6 +165,20 @@ let dataPush = {
     date: new Date()
 };
 client.publish('mytopic', JSON.stringify(dataPush));
+=======
+// let dataPush = {
+//     id: "62808211ee8fefe86e989d2e",
+//     name: "hà nội",
+//     humidity: 100,
+//     temperature: "30",
+//     co: "26",
+//     co2: "26",
+//     pm25: "55",
+//     pm10: "28",
+//     date: new Date()
+// };
+// client.publish('mytopic', JSON.stringify(dataPush));
+>>>>>>> c1033dae0bb49f80b9534bd7eba36a7a08dea447
 //create a server object:
 
 app.get('/', (req, res) => {
@@ -178,7 +196,6 @@ app.get('/name', (req, res) => {
         if (err) {
             console.log("err");
         } else {
-            console.log("thành công");
             res.json(city);
         }
     });
