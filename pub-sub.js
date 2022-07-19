@@ -99,6 +99,11 @@ client.on('message', function(topic, message) {
         //    console.log('Received message:', message.toString());
         //    console.log(typeof message.toString())
         let dataMessage = JSON.parse(message);
+        dataMessage.humidity= parseFloat(dataMessage.humidity).toFixed(2);
+        dataMessage.temperature= parseFloat(dataMessage.temperature).toFixed(2);
+        dataMessage.co=parseFloat(dataMessage.co).toFixed(0); //parseInt(dataMessage.co,10);
+        dataMessage.co2=parseFloat(dataMessage.co2).toFixed(0); 
+        dataMessage.pm25= parseFloat(dataMessage.pm25).toFixed(2);
         dataMessage.date = new Date();
         console.log("datapush", dataMessage);
         var history1 = new history(dataMessage);
@@ -147,10 +152,10 @@ client.subscribe('mytopic');
 let dataPush = {
     id: "62808211ee8fefe86e989d2e",
     name: "hà nội",
-    humidity: 100,
-    temperature: "30",
-    co: "26",
-    co2: "26",
+    humidity: "100.52222",
+    temperature: "30.3333",
+    co: "2622.222",
+    co2: "2633.444",
     pm25: "55",
     pm10: "28",
     date: new Date()

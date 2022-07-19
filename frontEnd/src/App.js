@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter,
   Routes,
@@ -22,13 +22,13 @@ return(
             </div>
             <div className="menu-list">
                 <div className="tooltip">
-                    <a href="/" className="tooltip-content" > 
+                    <a href="/" className={`tooltip-content ${ Number(sessionStorage.getItem('menuIndex')) == 0? 'active' : '' }`}  onClick={()=>{ sessionStorage.setItem("menuIndex",0) }}> 
                         <i id="iconMenu" style={{fontSize:"24px"}} className="fa fa-list-ul" ></i>
                         <div className="title-tooltip">Tổng quan</div>
                     </a>
                 </div>
                 <div className="tooltip">
-                    <a href="/chartAQI" className="tooltip-content " >
+                    <a href="/chartAQI" className={`tooltip-content ${ Number(sessionStorage.getItem('menuIndex')) == 1 ? 'active' : '' }`}  onClick={()=>{ sessionStorage.setItem("menuIndex",1) }}>
                         {/* <div className="icon-tooltip cash-icon">
                         </div>           */}
                         <i id="iconMenu" style={{fontSize:"24px"}} className="fa fa-line-chart" ></i>                  
@@ -36,7 +36,7 @@ return(
                     </a>
                 </div>
                 <div className="tooltip">
-                    <a href="/about" className="tooltip-content ">
+                    <a href="/about" className={`tooltip-content ${ Number(sessionStorage.getItem('menuIndex')) == 2 ? 'active' : '' }`}  onClick={()=>{ sessionStorage.setItem("menuIndex",2) }}>
                         <i id="iconMenu" style={{fontSize:"30px"}} className="fa fa-info-circle" ></i>
                         <div className="title-tooltip">Thông tin về AQI</div>
                     </a>
