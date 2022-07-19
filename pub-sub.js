@@ -191,9 +191,12 @@ app.get("/send", function(req, res) {
         message: dataPush
     });
 });
-
+const path = require('path');
 if (process.env.NODE_ENV==="production"){
-    app.use(express.static('frontend/build'))
+    app.use(express.static(path.join(__dirname, 'frontend/build')));
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+      });
 }
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
