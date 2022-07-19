@@ -5,7 +5,9 @@
   "main": "pub-sub.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node pub-sub.js"
+    "start": "node pub-sub.js",
+    "heroku-postbuild": "cd frontend && npm install && npm run build",
+    "build-start": "cd frontend && npm install && npm run build && cd .. && export NODE_ENV=production && nodemon"
   },
   "author": "",
   "license": "ISC",

@@ -2,7 +2,7 @@ var mqtt = require('mqtt')
 var bodyParser = require("body-parser");
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 5000;
+const port = 5000;
 const cors = require('cors');
 const city = require('./models/city');
 const history = require('./models/history');
@@ -191,12 +191,18 @@ app.get("/api/send", function(req, res) {
         message: dataPush
     });
 });
+// const path = require('path');
+// app.get('*',function(req, res) {
+//     res.sendFile(path.join(__dirname, './frontend/public', 'index.html'))
+// })
 const path = require('path');
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("frontend/build"));
   
-    app.use("*", (req, res) =>
-      res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
+    app.use("*", (req, res) =>{
+        console.log("frontend")
+        res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
+    }
     );
   }
 app.listen(port, () => {
