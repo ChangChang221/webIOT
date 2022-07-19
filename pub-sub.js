@@ -151,7 +151,6 @@ client.on('close', () => {
 // subscribe to topic 'my/test/topic'
 client.subscribe('mytopic');
 // publish message 'Hello' to topic 'my/test/topic'
-
 // let dataPush = {
 //     id: "62808211ee8fefe86e989d2e",
 //     name: "hà nội",
