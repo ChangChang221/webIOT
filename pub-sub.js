@@ -193,7 +193,6 @@ app.get("/api/send", function(req, res) {
     });
 });
 app.get("/*", function(req, res) {
-    client.publish('mytopic', dataPush);
     // console.log("req.body.message");
     res.sendFile(path.join(__dirname, "frontend", "public", "index.html"))
 });
