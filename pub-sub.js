@@ -7,6 +7,7 @@ const cors = require('cors');
 const city = require('./models/city');
 const history = require('./models/history');
 const cityController = require('./controller/cityController');
+var path=require('path');
 
 //Import the mongoose module
 var mongoose = require('mongoose');
@@ -191,6 +192,13 @@ app.get("/api/send", function(req, res) {
         message: dataPush
     });
 });
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static("frontend/build"));
+  
+    app.use("*", (req, res) =>
+      res.sendFile(path.join(__dirname, "frontend", "build", "index.html"))
+    );
+  }
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
