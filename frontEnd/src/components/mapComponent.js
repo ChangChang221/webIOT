@@ -42,7 +42,7 @@ export class MapContainer extends Component {
   }
 
   tick() {
-  fetch("https://tttrangweb-aqi.herokuapp.com/api") //http://localhost:5000/api/
+  fetch("http://localhost:5000/api/") //http://localhost:5000/api/
     .then(res => res.json())
     .then(dataRes=>{
       //  console.log("data", dataRes)
