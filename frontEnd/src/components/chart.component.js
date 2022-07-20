@@ -71,7 +71,7 @@ class ChartAQI extends Component {
 
     const datasetsCopy3 = this.state.dataAQI.datasets.slice(0);
     const dataCopy3 = datasetsCopy3[0].data.slice(0);
-        fetch("http://localhost:5000/api/name?name="+city) //http://localhost:5000/api/name?name=
+        fetch("https://tttrang-aqi-backend.herokuapp.com/api/name?name="+city) //http://localhost:5000/api/name?name=
           .then( res => res.json())
           .then(dataRes=>{
               if(dataRes==undefined) {
